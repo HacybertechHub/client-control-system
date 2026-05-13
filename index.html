@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacyber Globaltech | Client Order Portal</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- FACEBOOK PIXEL -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+
+    <!-- TIKTOK PIXEL -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      ttq.load('YOUR_TIKTOK_PIXEL_ID');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+
+    <style>
+        :root { --bg-main: #020617; --card-bg: #0d121f; --accent: #00ffcc; --secondary: #3b82f6; --text-soft: #94a3b8; --border-soft: rgba(0, 255, 204, 0.15); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg-main); background-image: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%); font-family: "Inter", system-ui, sans-serif; color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        nav { width: 100%; padding: 1.2rem 5%; background: rgba(13, 18, 31, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-soft); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .nav-logo { height: 45px; max-width: 180px; filter: drop-shadow(0 0 8px var(--accent)); object-fit: contain; }
+        .container { width: 90%; max-width: 450px; margin: 40px auto; position: relative; z-index: 2; }
+        .card { background: rgba(13, 18, 31, 0.95); padding: 28px; border-radius: 24px; border: 1px solid var(--border-soft); box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0, 255, 204, 0.05); }
+        .header-box { text-align: center; margin-bottom: 25px; }
+        .header-box h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 5px; }
+        .gradient-text { background: linear-gradient(135deg, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        label { font-size: 11px; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+        input, select, textarea { width: 100%; padding: 12px 14px; background: #080b14; border: 1px solid #1e293b; border-radius: 12px; color: white; font-size: 14px; margin-bottom: 16px; transition: 0.2s ease; }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 15px rgba(0, 255, 204, 0.15); }
+        .row { display: flex; gap: 12px; } .row > div { flex: 1; }
+        .checkbox-group { background: #080b14; border: 1px solid #1e293b; border-radius: 12px; padding: 14px; margin-bottom: 16px; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .checkbox-item input[type="checkbox"] { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+        .checkbox-item label { margin: 0; font-size: 13px; text-transform: none; letter-spacing: 0; color: white; font-weight: 500; cursor: pointer; }
+        .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--accent), var(--secondary)); border: none; border-radius: 14px; font-weight: 800; color: #020617; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 255, 204, 0.3); }
+        .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .hp-field { position: absolute; left: -9999px; opacity: 0; }
+        .contact-block { background: rgba(8, 11, 20, 0.6); border: 1px solid var(--border-soft); border-radius: 12px; padding: 14px; margin-top: 20px; text-align: center; }
+        .contact-block h3 { font-size: 12px; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+        .contact-item { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--text-soft); }
+        .contact-item a { color: white; text-decoration: none; } .contact-item a:hover { color: var(--accent); }
+        .pdf-actions { display: flex; gap: 8px; margin-top: 10px; justify-content: center; }
+        .pdf-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 204, 0.1); border: 1px solid var(--accent); color: var(--accent); padding: 10px 14px; border-radius: 10px; font-size: 12px; font-weight: 700; text-decoration: none; transition: 0.2s; cursor: pointer; }
+        .footer-brand { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-soft); }
+        .footer-logo { height: 24px; filter: brightness(0.9); }
+        .license { font-size: 9px; color: #475569; text-align: center; line-height: 1.4; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(2, 6, 23, 0.95); backdrop-filter: blur(8px); justify-content: center; align-items: center; z-index: 1000; animation: fadeIn 0.2s ease; }
+        .modal-content { background: var(--card-bg); padding: 30px; border-radius: 20px; width: 90%; max-width: 380px; text-align: center; border: 1px solid var(--border-soft); animation: slideUp 0.3s ease; }
+        .pdf-frame { width: 100%; height: 70vh; border: 1px solid var(--border-soft); border-radius: 12px; background: white; }
+        .channel-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 14px; margin: 10px 0; border-radius: 12px; text-decoration: none; font-weight: 700; color: white; transition: 0.2s; }
+        .wa { background: #22c55e; } .tg { background: #229ED9; } .copy { background: #475569; }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--card-bg); border: 1px solid var(--accent); padding: 14px 20px; border-radius: 12px; font-size: 14px; font-weight: 600; z-index: 2000; opacity: 0; transition: 0.3s ease; }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @media (max-width: 480px) { .nav-logo { height: 35px; max-width: 140px; } .card { padding: 20px; } .row { flex-direction: column; gap: 0; } .pdf-actions { flex-direction: column; } .contact-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <audio id="syncSound" preload="auto"><source src="notification.mp3" type="audio/mpeg"></audio>
+
+    <nav>
+        <img src="logo.png" alt="HACYBERGLOBALTECH Logo" class="nav-logo">
+        <span style="font-size: 10px; color: var(--accent); font-weight: 800;">ENCRYPTED HUB</span>
+    </nav>
+
+    <div class="container">
+        <div class="header-box">
+            <h1 class="gradient-text">Client Order Request</h1>
+            <p style="color: var(--text-soft); font-size: 13px;">Secure Automation Provisioning Portal</p>
+        </div>
+
+        <form id="orderForm" class="card">
+            <input type="text" class="hp-field" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            
+            <label><i data-lucide="user"></i> Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Client Name" required />
+            
+            <label><i data-lucide="phone"></i> Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 310 XXX XXXX" required />
+            
+            <label><i data-lucide="mail"></i> Email</label>
+            <input type="email" id="email" name="email" placeholder="client@domain.com" required />
+            
+            <div class="row">
+                <div><label><i data-lucide="globe"></i> Country</label><input type="text" id="country" name="country" placeholder="USA" required /></div>
+                <div><label><i data-lucide="hash"></i> Order ID</label><input type="text" id="systemId" name="systemId" placeholder="ID-887" pattern="ID-[0-9]{3,}" title="Format: ID-XXX" required /></div>
+            </div>
+
+            <label><i data-lucide="shield-check"></i> Add-on Services</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><input type="checkbox" id="waitlist" name="services" value="Priority Support"><label for="waitlist">Priority Support</label></div>
+                <div class="checkbox-item"><input type="checkbox" id="backgroundCheck" name="services" value="Expedited Setup"><label for="backgroundCheck">Expedited Setup</label></div>
+            </div>
+
+            <label><i data-lucide="file-text"></i> Project Details</label>
+            <textarea id="orderNotes" name="orderNotes" rows="2" placeholder="Describe your requirements..."></textarea>
+            
+            <div class="row">
+                <div><label><i data-lucide="package"></i> Plan</label>
+                    <select id="plan" name="plan" required>
+                        <option value="Starter ($135.50)">Starter ($135.50)</option>
+                        <option value="Enterprise Pro ($91.99)">Enterprise ($91.99)</option>
+                    </select>
+                </div>
+                <div><label><i data-lucide="credit-card"></i> Payment</label>
+                    <select id="payment" name="payment" required>
+                        <option value="Bitcoin">Bitcoin</option>
+                        <option value="Cash App">Cash App</option>
+                        <option value="Apple Pay">Apple Pay</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn">Submit Order</button>
+
+            <div class="contact-block">
+                <h3>Direct Contact & Socials</h3>
+                <div class="contact-grid">
+                    <div class="contact-item"><i data-lucide="message-circle" style="width: 14px;"></i><a href="https://wa.me/13609552434" target="_blank">WhatsApp</a></div>
+                    <div class="contact-item"><i data-lucide="send" style="width: 14px;"></i><a href="https://t.me/hacyberglobaltech" target="_blank">Telegram</a></div>
+                    <div class="contact-item"><i data-lucide="music" style="width: 14px;"></i><a href="https://tiktok.com/@hacyberglobal" target="_blank">TikTok</a></div>
+                    <div class="contact-item"><i data-lucide="facebook" style="width: 14px;"></i><a href="https://facebook.com/hacyberglobaltech" target="_blank">Facebook</a></div>
+                </div>
+                <div class="contact-item" style="margin-top: 8px; flex-direction: column; gap: 4px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <i data-lucide="mail" style="width: 14px;"></i>
+                        <a href="mailto:leads.hacyberhub@mail.com">leads.hacyberhub@mail.com</a>
+                    </div>
+                </div>
+                <div class="pdf-actions">
+                    <button type="button" class="pdf-btn" id="previewPdfBtn"><i data-lucide="eye" style="width: 14px;"></i> Preview Sheet</button>
+                    <a href="HACYBER_Deployment_Contact.pdf" class="pdf-btn" download><i data-lucide="download" style="width: 14px;"></i> Download PDF</a>
+                </div>
+            </div>
+
+            <div class="footer-brand">
+                <img src="logo.png" alt="HACYBERGLOBALTECH" class="footer-logo">
+                <p class="license">© 2026 HACYBERGLOBALTECH™. All Rights Reserved.</p>
+            </div>
+        </form>
+    </div>
+
+    <!-- MODALS -->
+    <div id="pdfModal" class="modal"><div class="modal-content" style="max-width: 90%;"><h2 style="margin-bottom:15px">Contact Sheet</h2><iframe src="HACYBER_Deployment_Contact.pdf" class="pdf-frame"></iframe><button onclick="closePdfModal()" style="margin-top:15px; background:none; color:var(--text-soft); border:1px solid var(--border-soft); padding:10px 20px; border-radius:10px; cursor:pointer;">Close Preview</button></div></div>
+    
+    <div id="supportModal" class="modal"><div class="modal-content"><h2>Order Received</h2><p style="color:var(--text-soft); font-size:13px; margin:15px 0">Order logged and notification dispatched.</p><a href="#" class="channel-btn tg" id="tgLink" target="_blank"><i data-lucide="send"></i> Continue on Telegram</a><a href="#" class="channel-btn wa" id="waLink" target="_blank"><i data-lucide="message-circle"></i> Continue on WhatsApp</a><button class="channel-btn copy" id="copyBtn"><i data-lucide="copy"></i> Copy Order Summary</button><button onclick="closeModal()" style="background:none; color:var(--text-soft); border:none; margin-top:15px; cursor:pointer;">Close</button></div></div>
+    
+    <div id="toast" class="toast"></div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKxYftJbnO6OOR7OgWknkKY2leK4d74QLY_gwNjo_the_H9_S2UCjshUtWp_UCQj4/exec';
+        const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN'; // Update this
+        const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';     // Update this
+
+        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+
+        const form = document.getElementById("orderForm");
+        const modal = document.getElementById("supportModal");
+        const pdfModal = document.getElementById("pdfModal");
+        const toast = document.getElementById("toast");
+        const syncSound = document.getElementById("syncSound");
+        const submitBtn = document.getElementById("submitBtn");
+        let orderMessage = "";
+
+        function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3000); }
+        function closeModal() { modal.style.display = 'none'; }
+        function closePdfModal() { pdfModal.style.display = 'none'; }
+
+        async function sendToGoogleSheet(data) {
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST', mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                return true;
+            } catch (err) { console.error('Sheet error:', err); return false; }
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            if (document.getElementById("website").value) return; // Honeypot
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            syncSound.play().catch(() => {});
+
+            const services = [];
+            if (document.getElementById("waitlist").checked) services.push("Priority Support");
+            if (document.getElementById("backgroundCheck").checked) services.push("Expedited Setup");
+            const servicesText = services.length ? services.join(", ") : "None";
+
+            const data = {
+                timestamp: new Date().toLocaleString(),
+                fullName: document.getElementById("fullName").value,
+                phone: document.getElementById("phone").value,
+                email: document.getElementById("email").value,
+                country: document.getElementById("country").value,
+                systemId: document.getElementById("systemId").value,
+                services: servicesText,
+                orderNotes: document.getElementById("orderNotes").value || 'N/A',
+                plan: document.getElementById("plan").value,
+                payment: document.getElementById("payment").value
+            };
+
+            orderMessage = `🚨 NEW CLIENT ORDER\n👤 Name: ${data.fullName}\n📱 Phone: ${data.phone}\n📧 Email: ${data.email}\n🌍 Country: ${data.country}\n🆔 Order ID: ${data.systemId}\n🔐 Add-ons: ${servicesText}\n📦 Plan: ${data.plan}\n💳 Method: ${data.payment}\n⏰ ${data.timestamp}`;
+
+            // Parallel executions
+            await sendToGoogleSheet(data);
+            
+            // Email backup
+            const mailLink = `mailto:leads.hacyberhub@mail.com,hacybertech@gmail.com,hacyber-team@outlook.com?subject=New Order: ${data.systemId}&body=${encodeURIComponent(orderMessage)}`;
+            window.open(mailLink, '_blank');
+
+            // Set modal links
+            document.getElementById("tgLink").href = `https://t.me/hacyberglobaltech?text=${encodeURIComponent(orderMessage)}`;
+            document.getElementById("waLink").href = `https://wa.me/13609552434?text=${encodeURIComponent(orderMessage)}`;
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Order';
+            modal.style.display = "flex";
+            lucide.createIcons();
+            form.reset();
+        });
+
+        document.getElementById("copyBtn").addEventListener("click", () => {
+            navigator.clipboard.writeText(orderMessage).then(() => showToast("Summary Copied"));
+        });
+
+        document.getElementById("previewPdfBtn").addEventListener("click", () => pdfModal.style.display = 'flex');
+    </script>
+</body>
+</html>
